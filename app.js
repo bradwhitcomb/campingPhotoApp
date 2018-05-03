@@ -107,10 +107,12 @@ app.post("/trailStories", function(req, res){
  });
 
  
-
-
-
-
-app.listen(8080, function(){
-    console.log('hiking magic on port 8080');
+ app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("SERVER IS RUNNING!");
 })
+
+
+
+// app.listen(8080, function(){
+//     console.log('hiking magic on port 8080');
+// })
