@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header">Edit <%=story.title%></div>
+    <form class="ui form" action="/trailStories/<%=story._id%>?_method=PUT" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input text="text" name="story[title]" value="<%=story.title%>">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input text="text" name="story[image]" value="<%=story.image%>">
+        </div>
+        <div class="field">
+            <label>Story</label>
+            <textarea name="story[comment]"><%=story.comment%></textarea>
+        </div>
+        <input class="ui green basic button" type="submit">
+
+    </form>
+</div>
+
+
+
+<% include ./partials/footer%>

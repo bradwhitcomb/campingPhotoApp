@@ -1,0 +1,16 @@
+i.signs {
+    font-size: 2em;
+    color: orchid;
+}
+
+.container.main {
+    margin-top: 7.0em;
+}
+#delete {
+    display:inline;
+}
+#read-more {
+    color: blue;
+}
+
+

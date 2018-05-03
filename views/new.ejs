@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header">New Trail Story</div>
+    <form class="ui form" action="/trailStories" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input text="text" name="story[title]" placeholder="title">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input text="text" name="story[image]" placeholder="image">
+        </div>
+        <div class="field">
+            <label>Story</label>
+            <textarea name="story[comment]"></textarea>
+        </div>
+        <input class="ui green basic button" type="submit">
+
+    </form>
+</div>
+
+
+
+<% include ./partials/footer%>

@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header"><%=story.title%></div>
+    <div class="ui top attached segment">
+        <div class="item">
+            <img class="ui centered rounded image" src= '<%=story.image%>'>
+            <div class="content">
+              <span><%=story.created.toDateString()%></span>
+            </div>
+            <div class="description">
+                <p><%-story.comment%></p>
+            </div>
+            
+            <a class="ui basic button blue"  href="/trailStories/<%=story._id%>/edit">Edit</a>
+
+            </a>
+            <form id="delete" action="/trailStories/<%=story._id%>?_method=DELETE" method="POST"T>
+                <button class="ui red basic button">Delete</button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<% include ./partials/footer%>
