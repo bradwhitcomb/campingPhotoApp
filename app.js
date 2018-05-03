@@ -3,16 +3,20 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
+var PORT = process.env.PORT || 8080;
 
 app = express();
 
-mongoose.connect('mongodb://localhost/appalachian_trail_blog');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 
+// mongoose.connect('mongodb://localhost/appalachian_trail_blog');
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost.appalachian_trail_blog"
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {useMongoClient:true});
 
 var appTrailSchema = new mongoose.Schema ({
     title: String,
@@ -107,11 +111,11 @@ app.post("/trailStories", function(req, res){
  });
 
  
- app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("SERVER IS RUNNING!");
-})
+ 
 
-
+app.listen(PORT, function() {
+    console.log("App running on port " + PORT + "!");
+  });
 
 // app.listen(8080, function(){
 //     console.log('hiking magic on port 8080');
