@@ -13,10 +13,15 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 
+
+
+
 // mongoose.connect('mongodb://localhost/appalachian_trail_blog');
+mongoose.connect("mongodb://nugget:traildog@ds159497.mlab.com:59497/appalachian_trail_blog");
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost.appalachian_trail_blog"
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {useMongoClient:true});
+mongoose.connect(MONGODB_URI);
 
 var appTrailSchema = new mongoose.Schema ({
     title: String,
